@@ -1,0 +1,12 @@
+name: Beispiel
+version: 1.0
+main: itIsAProject.main.Main
+
+commands:
+   heal:
+      description: This Command heals you!
+      usage:
+   removeheal:
+      description: Steal the Health of others or just remove your own!
+      usage:
+      

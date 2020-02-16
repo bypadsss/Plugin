@@ -1,0 +1,3 @@
+module itIsAProject {
+	requires spigot;
+}
