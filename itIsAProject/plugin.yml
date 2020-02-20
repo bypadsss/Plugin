@@ -9,4 +9,6 @@ commands:
    removeheal:
       description: Steal the Health of others or just remove your own!
       usage:
+   kit:
+      description: Select a Kit to fight your enemies!
       
