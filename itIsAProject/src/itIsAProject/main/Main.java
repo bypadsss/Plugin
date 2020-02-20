@@ -7,7 +7,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 import itIsAProject.command.HealCommand;
 import itIsAProject.command.KitCommand;
 import itIsAProject.command.RmHealCommand;
+import itIsAProject.command.SetSpawnCommand;
 import itIsAProject.listener.JoinListener;
+import itIsAProject.listener.RespawnListener;
 
 public class Main extends JavaPlugin{
 	
@@ -24,6 +26,7 @@ public class Main extends JavaPlugin{
 		getCommand("heal").setExecutor(new HealCommand());
 		getCommand("removeheal").setExecutor(new RmHealCommand());
 		getCommand("kit").setExecutor(new KitCommand());
+		getCommand("setspawn").setExecutor(new SetSpawnCommand());
 		
 		//registriert den PluginManager für Events
 		
@@ -31,6 +34,7 @@ public class Main extends JavaPlugin{
 		//JoinListener (event) wird initialisiert
 		
 		pmanager.registerEvents(new JoinListener(), this);
+		pmanager.registerEvents(new RespawnListener(), this);
 		
 	}
 	

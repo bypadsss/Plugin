@@ -24,7 +24,7 @@ public class KitCommand implements CommandExecutor{
 					
 					Inventory inv = Bukkit.createInventory(null, 9*3, "§a§lSelect your Weapon!");
 					
-					ItemStack sword = new ItemStack(Material.GOLDEN_SWORD);
+					ItemStack sword = new ItemStack(Material.DIAMOND_SWORD);
 					ItemMeta swordMeta = sword.getItemMeta();
 					swordMeta.setDisplayName("§6One Hit Wonder");
 					swordMeta.addEnchant(Enchantment.DAMAGE_ALL, 10000, true);
@@ -47,7 +47,7 @@ public class KitCommand implements CommandExecutor{
 					player.sendMessage("§c" + player.getName() + " §ayou can now select your Weapon!");
 					
 				}else
-					player.sendMessage("§cBitte benutze §6/kit§c!");
+					player.sendMessage("§cPls use §6/kit§c!");
 			}else
 				player.sendMessage("§cSTOP! You are not allowed to do this!");
 		}else

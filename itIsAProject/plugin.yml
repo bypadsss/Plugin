@@ -11,4 +11,8 @@ commands:
       usage:
    kit:
       description: Select a Kit to fight your enemies!
+      usage:
+   setspawn:
+      description: Set your Spawnpoint!
+      usage:
       
