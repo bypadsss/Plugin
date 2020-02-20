@@ -15,4 +15,10 @@ commands:
    setspawn:
       description: Set your Spawnpoint!
       usage:
+   spawn:
+      description: Teleport to your Spawnlocation!
+      usage:
+   sendtothemoon:
+      description: Send a Player to the moon!
+      usage:
       
