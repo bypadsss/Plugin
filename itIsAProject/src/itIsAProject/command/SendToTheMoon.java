@@ -2,8 +2,10 @@ package itIsAProject.command;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.Particle;
 import org.bukkit.World;
+import org.bukkit.block.data.BlockData;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -11,6 +13,7 @@ import org.bukkit.entity.Player;
 
 public class SendToTheMoon implements CommandExecutor{
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
 		if(sender instanceof Player) {
@@ -29,6 +32,7 @@ public class SendToTheMoon implements CommandExecutor{
 							}
 							y+=1;
 							Location loc2 = new Location(world, player.getLocation().getX(), y, player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch());
+							player.sendBlockChange(loc2, Material.AIR, (byte)0);
 							player.teleport(loc2);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
@@ -53,6 +57,7 @@ public class SendToTheMoon implements CommandExecutor{
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
+							
 						}
 					}
 				}else
