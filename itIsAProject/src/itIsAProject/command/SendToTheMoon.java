@@ -8,7 +8,6 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.util.Vector;
 
 public class SendToTheMoon implements CommandExecutor{
 
@@ -18,25 +17,43 @@ public class SendToTheMoon implements CommandExecutor{
 			Player player = (Player) sender;
 			if(player.hasPermission("beispiel.sendtothemoon")) {
 				if(args.length == 0) {
-					Vector v = player.getVelocity();
 					World world = player.getWorld();
-					v.setY(5);
-					player.setVelocity(v);
-					for(int i = 0; i<10; i++) {
+					double y = player.getLocation().getY();
+					for(int y2 = 0; y2<100; y2++) {
 						try {
-							Thread.sleep(100);
+							Thread.sleep(10);
+							Location loc = new Location(world, player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch());
+							player.spawnParticle(Particle.LAVA, loc, 100);
+							if(y%10 == 0) {
+								player.spawnParticle(Particle.EXPLOSION_LARGE, loc, 1);
+							}
+							y+=1;
+							Location loc2 = new Location(world, player.getLocation().getX(), y, player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch());
+							player.teleport(loc2);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						Location loc = new Location(world, player.getLocation().getX(), player.getLocation().getY(), player.getLocation().getZ(), player.getLocation().getYaw(), player.getLocation().getPitch());
-						player.spawnParticle(Particle.FIREWORKS_SPARK, loc, 100);
 					}
 				} else if (args.length == 1) {
 					Player target = Bukkit.getPlayer(args[0]);
 					if(target != null) {
 						World world = target.getWorld();
-						Location loc = new Location(world, target.getLocation().getX(), 5000.0, target.getLocation().getZ(), target.getLocation().getYaw(), target.getLocation().getPitch());
-						target.teleport(loc);
+						double y = target.getLocation().getY();
+						for(int y2 = 0; y2<100; y2++) {
+							try {
+								Thread.sleep(10);
+								Location loc = new Location(world, target.getLocation().getX(), target.getLocation().getY(), target.getLocation().getZ(), target.getLocation().getYaw(), target.getLocation().getPitch());
+								target.spawnParticle(Particle.LAVA, loc, 100);
+								if(y%10 == 0) {
+									target.spawnParticle(Particle.EXPLOSION_LARGE, loc, 1);
+								}
+								y+=1;
+								Location loc2 = new Location(world, target.getLocation().getX(), y, target.getLocation().getZ(), target.getLocation().getYaw(), target.getLocation().getPitch());
+								target.teleport(loc2);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+						}
 					}
 				}else
 					player.sendMessage("§cPls use §6/sendtothemoon§c!");

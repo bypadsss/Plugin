@@ -13,6 +13,7 @@ public class RecipeLoader {
 		ItemMeta h4Meta = h4.getItemMeta();
 		h4Meta.setDisplayName("§aABONNIERT H4_SQUAD");
 		h4.setItemMeta(h4Meta);
+		@SuppressWarnings("deprecation")
 		ShapedRecipe h4Recipe = new ShapedRecipe(h4);
 		h4Recipe.shape(" X ","XXX"," X ");
 		h4Recipe.setIngredient('X', Material.BEDROCK);
